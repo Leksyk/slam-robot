@@ -1,4 +1,4 @@
-# OpenCV "Hello World" application. Displays Canny edge detection output
+# OpenCV "Hello World" application. Displays depth map.
 # from the first connected video device.
 import sys
 import cv2
