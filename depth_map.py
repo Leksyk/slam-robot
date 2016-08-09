@@ -10,9 +10,17 @@ import numpy.ma as ma
 GRAYSCALE = [0.299, 0.587, 0.114]
 DEVICE_L_IDX = 0
 DEVICE_R_IDX = 1
+DEVICE_DISTANCE = 124
+FIELD_VIEW = 20.2 * math.pi / 180
 
 def rgb2gray(rgb):
   return np.dot(rgb[:,:,0], GRAYSCALE[0]).astype(np.uint8) + np.dot(rgb[:,:,1], GRAYSCALE[1]).astype(np.uint8) + np.dot(rgb[:,:,2], GRAYSCALE[2]).astype(np.uint8)
+
+def desparity2distance(left_x, width, desparity):
+  right_x = deparity + left_x
+  right_alpha = right_x / width * FIELD_VIEW
+  left_alpha = left_x / width * FIELD_VIEW
+  return 1/(S * math.tan(FIELD_VIEW/2 + math.pi/2 - left_alpha)) + 1/(S * math.tan(right_alpha + math.pi/2 - FILED_VIEW/2))
 
 def main(unused_argv):
   

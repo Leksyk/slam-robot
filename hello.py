@@ -6,7 +6,7 @@ import cv2
 
 
 FLAGS = gflags.FLAGS
-gflags.DEFINE_integer('capture_device_index', 0, 'Capture device index')
+gflags.DEFINE_integer('capture_device_index', 1, 'Capture device index')
 
 
 def main(unused_argv):
@@ -20,6 +20,7 @@ def main(unused_argv):
     cv2.putText(out, 'Press q to quit', (0,frame.shape[0]-10), font,
         fontScale=1, color=(255, 255, 255), thickness=2)
     cv2.imshow(window_name, out)
+    cv2.imshow('frame', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
       break
 
